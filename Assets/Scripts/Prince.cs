@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Prince : MonoBehaviour {
-    
+
     public float speed = 5;
     public Rigidbody2D rb;
 
@@ -25,7 +25,8 @@ public class Prince : MonoBehaviour {
         if (isMoving()) {
             timer ++;
             if (Random.value - timer/500 < 0.001) {
-                SceneManager.LoadScene("Battle");
+                // SceneManager.LoadScene("Battle");
+                SceneTransition.move = true;
             }
         }
     }

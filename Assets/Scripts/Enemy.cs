@@ -1,11 +1,13 @@
 using UnityEngine;
 
 public class Enemy {
+    
     public int level;
     public int maxHp;
     public int hp;
     public int atk;
     public int def;
+    public float speed;
 
     public Enemy() {
         this.level = (int) (Random.value * 9) + 1;
@@ -13,5 +15,6 @@ public class Enemy {
         this.hp = maxHp;
         this.atk = level * 2;
         this.def = level;
+        this.speed = 1;
     }
 }
