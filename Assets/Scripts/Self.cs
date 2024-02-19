@@ -1,15 +1,10 @@
 using UnityEngine;
 
-public class Self {
+public class Self : Character {
 
-    public int level;
-    public int maxHp;
-    public int hp;
-    public int atk;
-    public int def;
     public int exp;
 
-    public Self() {
+    public Self() {      
         read();
     }
 
@@ -33,10 +28,6 @@ public class Self {
         PlayerPrefs.SetInt("def", def);
         PlayerPrefs.SetInt("exp", exp);
 
-    }
-
-    public void attack(Enemy e) {
-        e.hp -= this.atk - e.def;
     }
 
 }

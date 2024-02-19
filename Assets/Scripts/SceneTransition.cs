@@ -19,6 +19,7 @@ public class SceneTransition : MonoBehaviour {
         if (move) {
             rt.anchoredPosition = Vector2.MoveTowards(rt.anchoredPosition, target, 20);
             if (Vector2.Distance(rt.anchoredPosition, target) <= Vector2.Distance(initialPosition, target) / 2) {
+                move = false;
                 SceneManager.LoadScene("Battle");
             }
         }

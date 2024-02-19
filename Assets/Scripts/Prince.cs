@@ -13,6 +13,8 @@ public class Prince : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        PlayerPrefs.SetFloat("x", -0.32f);
+        PlayerPrefs.SetFloat("y", 0);
     }
 
     void Update() {
@@ -25,13 +27,24 @@ public class Prince : MonoBehaviour {
         if (isMoving()) {
             timer ++;
             if (Random.value - timer/500 < 0.001) {
-                // SceneManager.LoadScene("Battle");
                 SceneTransition.move = true;
+                PlayerPrefs.SetFloat("x", transform.position.x);
+                PlayerPrefs.SetFloat("y", transform.position.y);
             }
         }
     }
 
+    void Awake() {
+        transform.position = new Vector3(PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), 0);
+    }
+
     public bool isMoving() {
         return horizontalInput != 0 || verticalInput != 0;
+    }
+
+    public void OnCollisionStay2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Wall")) {
+            rb.velocity = Vector2.zero;
+        }
     }
 }

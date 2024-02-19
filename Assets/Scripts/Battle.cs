@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Battle : MonoBehaviour {
 
@@ -16,15 +17,13 @@ public class Battle : MonoBehaviour {
         enemy = new Enemy();
         prince = new Self();
 
-        InvokeRepeating("attack", 5/enemy.speed, 5/enemy.speed);
+        InvokeRepeating("attackPrince", 5/enemy.speed, 5/enemy.speed);
 
         input.onEndEdit.AddListener(submit);
         input.Select();
     }
 
     void Update() {
-
-        // input.Select();
 
         enemyLevel.text = "Enemy Level: " + enemy.level;
         enemyHp.text = "Enemy HP: " + enemy.hp;
@@ -43,9 +42,7 @@ public class Battle : MonoBehaviour {
         }
 
         if (enemy.hp <= 0) {
-            prince.exp += enemy.level;
-            Debug.Log(prince.exp);
-            prince.save();
+            victory();
         }
 
         dummy.Select();
@@ -53,8 +50,22 @@ public class Battle : MonoBehaviour {
         input.Select();
     }
 
-    void attack() {
-        prince.hp -= enemy.atk - prince.def;
+    void victory() {
+        prince.exp += enemy.level * 2 + 5;
+        while (prince.exp >= prince.level * 10) {
+            prince.exp -= prince.level * 10;
+            prince.level ++;
+            prince.maxHp = prince.level * 10;
+            prince.hp = prince.maxHp;
+            prince.atk = prince.level * 2;
+            prince.def = prince.level;
+        }
+        prince.save();
+        SceneManager.LoadScene("L1");
+    }
+
+    public void attackPrince() {
+        enemy.attack(prince);
     }
 
 }
