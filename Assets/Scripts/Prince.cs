@@ -46,5 +46,8 @@ public class Prince : MonoBehaviour {
         if (collision.gameObject.CompareTag("Wall")) {
             rb.velocity = Vector2.zero;
         }
+        else if (collision.gameObject.CompareTag("DownStairs")) {
+            SceneManager.LoadScene("L2");
+        }
     }
 }
