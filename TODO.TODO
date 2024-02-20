@@ -82,8 +82,10 @@
               "content": "Background",
               "id": 1708209317563,
               "level": "default",
-              "done": false,
-              "start": 1708209317563
+              "done": true,
+              "start": 1708209317563,
+              "focus": false,
+              "end": 1708407360465
             }
           },
           {
@@ -106,10 +108,10 @@
               "content": "L1",
               "id": 1708209325850,
               "level": "default",
-              "done": false,
+              "done": true,
               "start": 1708209325850,
               "focus": false,
-              "end": 1708315538786
+              "end": 1708407346673
             }
           },
           {
@@ -171,6 +173,17 @@
               "focus": false,
               "end": 1708315571002
             }
+          },
+          {
+            "key": 1708407377945,
+            "children": [],
+            "todo": {
+              "content": "Tutorial",
+              "id": 1708407377945,
+              "level": "default",
+              "done": false,
+              "start": 1708407377945
+            }
           }
         ],
         "todo": {
@@ -209,6 +222,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1708315571132"
+    "version": "1708407380863"
   }
 }
