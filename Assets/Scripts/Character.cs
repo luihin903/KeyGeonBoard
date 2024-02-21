@@ -9,9 +9,10 @@ public abstract class Character {
     public int atk;
     public int def;
 
-    public void attack(Character c) {
+    public int attack(Character c) {
         int damage = Math.Max(this.atk - c.def, 1);
         c.hp -= damage;
+        return damage;
     }
 
 }

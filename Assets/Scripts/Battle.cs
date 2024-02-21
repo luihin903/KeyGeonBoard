@@ -1,21 +1,33 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Battle : MonoBehaviour {
 
     public Enemy enemy;
     public Self prince;
-    public TextMeshProUGUI enemyLevel;
-    public TextMeshProUGUI enemyHp;
-    public TextMeshProUGUI princeLevel;
-    public TextMeshProUGUI princeHp;
+
+    public TMP_Text enemyLevel;
+    public Slider enemyHp;
+    public TMP_Text princeHpText;
+    public Slider princeHp;
+
+    public TMP_Text damageByPrinceText;
+    public TMP_Text damageByEnemyText;
+
+    public Damage dp;
+    public Damage de;
+
     public TMP_InputField input;
     public TMP_InputField dummy;
 
     void Start() {
         enemy = new Enemy();
         prince = new Self();
+
+        enemyHp.maxValue = enemy.maxHp;
+        princeHp.maxValue = prince.maxHp;
 
         InvokeRepeating("attackPrince", 5/enemy.speed, 5/enemy.speed);
 
@@ -25,19 +37,24 @@ public class Battle : MonoBehaviour {
 
     void Update() {
 
-        enemyLevel.text = "Enemy Level: " + enemy.level;
-        enemyHp.text = "Enemy HP: " + enemy.hp;
-        princeLevel.text = "Prince Level: " + prince.level;
-        princeHp.text = "Prince HP: " + prince.hp;
-    
+        enemyLevel.text = "Lv. " + enemy.level;
+        princeHpText.text = prince.hp + " / " + prince.maxHp;
+
+        enemyHp.value = enemy.hp;
+        princeHp.value = prince.hp;
+
+        if (dp != null) dp.update();
+        if (de != null) de.update();
     }
 
     void submit(string action) {
-        Debug.Log(action);
 
         switch (action) {
             case "attack":
-                prince.attack(enemy);
+                int damage = prince.attack(enemy);
+                dp = new Damage(damageByPrinceText, damage, new Vector2(200, 200));
+                break;
+            case "run":
                 break;
         }
 
@@ -65,7 +82,8 @@ public class Battle : MonoBehaviour {
     }
 
     public void attackPrince() {
-        enemy.attack(prince);
+        int damage = enemy.attack(prince);
+        de = new Damage(damageByEnemyText, damage, new Vector2(400, -200));
     }
 
 }
