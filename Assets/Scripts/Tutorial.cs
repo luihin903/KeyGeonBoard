@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour {
 
+    public Canvas tutorial;
     public Image dark;
 
     public TMP_Text tutorialSlimeText;
@@ -30,6 +31,10 @@ public class Tutorial : MonoBehaviour {
     public TMP_InputField realInput;
 
     void Start() {
+        
+        if (PlayerPrefs.GetInt("level") != 1) {
+            Destroy(tutorial.gameObject, 0);
+        }
 
         dark.gameObject.SetActive(true);
 
@@ -46,7 +51,7 @@ public class Tutorial : MonoBehaviour {
         tutorialPrinceHpText.gameObject.SetActive(false);
         tutorialPrinceHpArrow.gameObject.SetActive(false);
         tutorialPrinceHpImage.gameObject.SetActive(false);
-        tutorialPrinceHpImageText.gameObject.SetActive(false);
+        // tutorialPrinceHpImageText.gameObject.SetActive(false);
         tutorialPrinceHpButton.gameObject.SetActive(false);
 
         tutorialActionText.gameObject.SetActive(false);
@@ -62,6 +67,8 @@ public class Tutorial : MonoBehaviour {
                 tutorialActionText.gameObject.SetActive(false);
                 tutorialActionArrow.gameObject.SetActive(false);
                 tutorialActionImage.gameObject.SetActive(false);
+
+                Destroy(tutorial.gameObject, 1);
             }
         }
     }
@@ -88,7 +95,7 @@ public class Tutorial : MonoBehaviour {
         tutorialPrinceHpText.gameObject.SetActive(true);
         tutorialPrinceHpArrow.gameObject.SetActive(true);
         tutorialPrinceHpImage.gameObject.SetActive(true);
-        tutorialPrinceHpImageText.gameObject.SetActive(true);
+        // tutorialPrinceHpImageText.gameObject.SetActive(true);
         tutorialPrinceHpButton.gameObject.SetActive(true);
 
     }
@@ -98,7 +105,7 @@ public class Tutorial : MonoBehaviour {
         tutorialPrinceHpText.gameObject.SetActive(false);
         tutorialPrinceHpArrow.gameObject.SetActive(false);
         tutorialPrinceHpImage.gameObject.SetActive(false);
-        tutorialPrinceHpImageText.gameObject.SetActive(false);
+        // tutorialPrinceHpImageText.gameObject.SetActive(false);
         tutorialPrinceHpButton.gameObject.SetActive(false);
 
         tutorialActionText.gameObject.SetActive(true);

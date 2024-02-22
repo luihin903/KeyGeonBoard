@@ -69,6 +69,9 @@ public class Battle : MonoBehaviour {
 
     void victory() {
         prince.exp += enemy.level * 2 + 5;
+        if (prince.level == 1) {
+            prince.exp = 10;
+        }
         while (prince.exp >= prince.level * 10) {
             prince.exp -= prince.level * 10;
             prince.level ++;

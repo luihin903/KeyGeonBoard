@@ -1,16 +1,18 @@
 using UnityEngine;
+using System;
 
 public class Enemy : Character {
     
     public float speed;
 
     public Enemy() {
-
-        this.level = (int) (Random.value * 9) + 1;
+        int offset = (int) Math.Round(UnityEngine.Random.value*2 - 1);
+        this.level = PlayerPrefs.GetInt("level") + offset;
         this.maxHp = level * 10;
         this.hp = maxHp;
         this.atk = level * 2;
         this.def = level;
         this.speed = 1;
+
     }
 }

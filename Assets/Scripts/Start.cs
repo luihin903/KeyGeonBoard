@@ -10,9 +10,9 @@ public class Start : MonoBehaviour {
         int level = 1;
 
         PlayerPrefs.SetInt("level", level);
-        PlayerPrefs.SetInt("maxHp", level * 10);
-        PlayerPrefs.SetInt("hp", level * 10);
-        PlayerPrefs.SetInt("atk", level * 2);
+        PlayerPrefs.SetInt("maxHp", level * 10 * 2);
+        PlayerPrefs.SetInt("hp", level * 10 * 2);
+        PlayerPrefs.SetInt("atk", level * 2 * 2);
         PlayerPrefs.SetInt("def", level);
         PlayerPrefs.SetInt("exp", 0);
 
