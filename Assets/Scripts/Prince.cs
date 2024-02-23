@@ -30,6 +30,7 @@ public class Prince : MonoBehaviour {
                 SceneTransition.move = true;
                 PlayerPrefs.SetFloat("x", transform.position.x);
                 PlayerPrefs.SetFloat("y", transform.position.y);
+                PlayerPrefs.SetString("lastScene", "L1");
             }
         }
     }

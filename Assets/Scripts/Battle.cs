@@ -8,6 +8,8 @@ public class Battle : MonoBehaviour {
     public Enemy enemy;
     public Self prince;
 
+    public GameObject background;
+
     public TMP_Text enemyLevel;
     public Slider enemyHp;
     public TMP_Text princeHpText;
@@ -25,6 +27,10 @@ public class Battle : MonoBehaviour {
     void Start() {
         enemy = new Enemy();
         prince = new Self();
+
+        if (prince.level == 1) {
+            background.gameObject.SetActive(true);
+        }
 
         enemyHp.maxValue = enemy.maxHp;
         princeHp.maxValue = prince.maxHp;
@@ -81,12 +87,17 @@ public class Battle : MonoBehaviour {
             prince.def = prince.level;
         }
         prince.save();
-        SceneManager.LoadScene("L1");
+        string last = PlayerPrefs.GetString("lastScene");
+        PlayerPrefs.SetString("lastScene", "Battle");
+        SceneManager.LoadScene(last);
     }
 
     public void attackPrince() {
         int damage = enemy.attack(prince);
         de = new Damage(damageByEnemyText, damage, new Vector2(400, -200));
+        if (prince.hp <= 0) {
+            SceneManager.LoadScene("Dead");
+        }
     }
 
 }

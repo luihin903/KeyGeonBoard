@@ -102,6 +102,19 @@
             }
           },
           {
+            "key": 1708633745833,
+            "children": [],
+            "todo": {
+              "content": "Status",
+              "id": 1708633745833,
+              "level": "default",
+              "done": true,
+              "start": 1708633745833,
+              "focus": false,
+              "end": 1708633750256
+            }
+          },
+          {
             "key": 1708209325850,
             "children": [],
             "todo": {
@@ -181,8 +194,10 @@
               "content": "Tutorial",
               "id": 1708407377945,
               "level": "default",
-              "done": false,
-              "start": 1708407377945
+              "done": true,
+              "start": 1708407377945,
+              "focus": false,
+              "end": 1708633759384
             }
           }
         ],
@@ -222,6 +237,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1708407380863"
+    "version": "1708633759509"
   }
 }

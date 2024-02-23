@@ -1,11 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Start : MonoBehaviour {
+public class Title : MonoBehaviour {
 
     public void startGame() {
-
-        SceneManager.LoadScene("Plot");
 
         int level = 1;
 
@@ -16,6 +14,15 @@ public class Start : MonoBehaviour {
         PlayerPrefs.SetInt("def", level);
         PlayerPrefs.SetInt("exp", 0);
 
+        PlayerPrefs.SetInt("plot", 0);
+        PlayerPrefs.SetString("lastScene", "Title");
+
+        SceneManager.LoadScene("Plot");
+
+    }
+
+    public void Exit() {
+        Application.Quit();
     }
 
 }

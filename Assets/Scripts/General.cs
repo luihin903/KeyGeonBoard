@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class General : MonoBehaviour {
 
@@ -17,6 +18,10 @@ public class General : MonoBehaviour {
         atk = PlayerPrefs.GetInt("atk");
         def = PlayerPrefs.GetInt("def");
         exp = PlayerPrefs.GetInt("exp");
+    }
+
+    public void BackToTitle() {
+        SceneManager.LoadScene("Title");
     }
 
 }
