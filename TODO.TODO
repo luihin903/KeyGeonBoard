@@ -36,6 +36,30 @@
               "done": false,
               "start": 1708209288746
             }
+          },
+          {
+            "key": 1708750476323,
+            "children": [],
+            "todo": {
+              "content": "Endings",
+              "id": 1708750476323,
+              "level": "default",
+              "done": false,
+              "start": 1708750476324
+            }
+          },
+          {
+            "key": 1708750502978,
+            "children": [],
+            "todo": {
+              "content": "Exit",
+              "id": 1708750502978,
+              "level": "default",
+              "done": true,
+              "start": 1708750502978,
+              "focus": false,
+              "end": 1708750508009
+            }
           }
         ],
         "todo": {
@@ -211,7 +235,45 @@
       },
       {
         "key": 1708209261163,
-        "children": [],
+        "children": [
+          {
+            "key": 1708740683903,
+            "children": [],
+            "todo": {
+              "content": "Stories",
+              "id": 1708740683903,
+              "level": "default",
+              "done": true,
+              "start": 1708740683904,
+              "focus": false,
+              "end": 1708750471516
+            }
+          },
+          {
+            "key": 1708740689791,
+            "children": [],
+            "todo": {
+              "content": "Choices",
+              "id": 1708740689791,
+              "level": "default",
+              "done": true,
+              "start": 1708740689791,
+              "focus": false,
+              "end": 1708750472495
+            }
+          },
+          {
+            "key": 1708740693656,
+            "children": [],
+            "todo": {
+              "content": "Images",
+              "id": 1708740693656,
+              "level": "default",
+              "done": false,
+              "start": 1708740693656
+            }
+          }
+        ],
         "todo": {
           "content": "Narrative",
           "id": 1708209261163,
@@ -219,12 +281,49 @@
           "done": false,
           "start": 1708209261163
         }
+      },
+      {
+        "key": 1708750484369,
+        "children": [
+          {
+            "key": 1708750492577,
+            "children": [],
+            "todo": {
+              "content": "Save",
+              "id": 1708750492577,
+              "level": "default",
+              "done": false,
+              "start": 1708750492577
+            }
+          },
+          {
+            "key": 1708750494969,
+            "children": [],
+            "todo": {
+              "content": "Load",
+              "id": 1708750494969,
+              "level": "default",
+              "done": false,
+              "start": 1708750494969
+            }
+          }
+        ],
+        "todo": {
+          "content": "System",
+          "id": 1708750484369,
+          "level": "default",
+          "done": false,
+          "start": 1708750484369
+        }
       }
     ],
     "expandKeys": [
       1708209220471,
       1708209231051,
-      1708209254067
+      1708209254067,
+      1708209261163,
+      1708740689791,
+      1708750484369
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -237,6 +336,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1708633759509"
+    "version": "1708750508182"
   }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wall
   - DownStairs
+  - UpStairs
   layers:
   - Default
   - TransparentFX

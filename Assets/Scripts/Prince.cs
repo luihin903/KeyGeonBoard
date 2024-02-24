@@ -11,10 +11,44 @@ public class Prince : MonoBehaviour {
 
     public int timer = 0;
 
+    public GameObject upStairs;
+    public GameObject downStairs;
+
     void Start() {
+        
         rb = GetComponent<Rigidbody2D>();
-        PlayerPrefs.SetFloat("x", -0.32f);
-        PlayerPrefs.SetFloat("y", 0);
+        gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), 0);
+
+        upStairs.gameObject.SetActive(false);
+        downStairs.gameObject.SetActive(false);
+
+        switch(PlayerPrefs.GetInt("plot")) {
+            case 14:
+                if (PlayerPrefs.GetString("lastScene") != "Battle") {
+                    PlayerPrefs.SetFloat("x", 0.32f);
+                    PlayerPrefs.SetFloat("y", 0);
+                }
+                downStairs.gameObject.SetActive(true);
+                break;
+            case 23:
+                if (PlayerPrefs.GetString("lastScene") != "Battle") {
+                    PlayerPrefs.SetFloat("x", 13);
+                    PlayerPrefs.SetFloat("y", -9.28f);
+                }
+                upStairs.gameObject.SetActive(true);
+                upStairs.transform.position = new Vector3(0.32f, 1, 0);
+                break;
+            case 26:
+                if (PlayerPrefs.GetString("lastScene") != "Battle") {
+                    PlayerPrefs.SetFloat("x", 0.32f);
+                    PlayerPrefs.SetFloat("y", 0);
+                }
+                upStairs.gameObject.SetActive(true);
+                upStairs.transform.position = new Vector3(-7.36f, -9.28f, 0);
+                break;
+        }
+
+        gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), 0);
     }
 
     void Update() {
@@ -28,15 +62,11 @@ public class Prince : MonoBehaviour {
             timer ++;
             if (Random.value - timer/500 < 0.001) {
                 SceneTransition.move = true;
-                PlayerPrefs.SetFloat("x", transform.position.x);
-                PlayerPrefs.SetFloat("y", transform.position.y);
+                PlayerPrefs.SetFloat("x", gameObject.transform.position.x);
+                PlayerPrefs.SetFloat("y", gameObject.transform.position.y);
                 PlayerPrefs.SetString("lastScene", "L1");
             }
         }
-    }
-
-    void Awake() {
-        transform.position = new Vector3(PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), 0);
     }
 
     public bool isMoving() {
@@ -48,7 +78,12 @@ public class Prince : MonoBehaviour {
             rb.velocity = Vector2.zero;
         }
         else if (collision.gameObject.CompareTag("DownStairs")) {
-            SceneManager.LoadScene("L2");
+            PlayerPrefs.SetString("lastScene", "L1");
+            SceneManager.LoadScene("Plot");
+        }
+        else if (collision.gameObject.CompareTag("UpStairs")) {
+            PlayerPrefs.SetString("lastScene", "L1");
+            SceneManager.LoadScene("Plot");
         }
     }
 }

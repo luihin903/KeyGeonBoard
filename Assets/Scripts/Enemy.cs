@@ -8,6 +8,7 @@ public class Enemy : Character {
     public Enemy() {
         int offset = (int) Math.Round(UnityEngine.Random.value*2 - 1);
         this.level = PlayerPrefs.GetInt("level") + offset;
+        if (level <= 0) level = 1;
         this.maxHp = level * 10;
         this.hp = maxHp;
         this.atk = level * 2;

@@ -25,11 +25,15 @@ public class Battle : MonoBehaviour {
     public TMP_InputField dummy;
 
     void Start() {
+        
         enemy = new Enemy();
         prince = new Self();
 
         if (prince.level == 1) {
             background.gameObject.SetActive(true);
+        }
+        else {
+            background.gameObject.SetActive(false);
         }
 
         enemyHp.maxValue = enemy.maxHp;
@@ -54,26 +58,33 @@ public class Battle : MonoBehaviour {
     }
 
     void submit(string action) {
-
+        if (enemy.hp <= 0) return;
+        
         switch (action) {
             case "attack":
                 int damage = prince.attack(enemy);
                 dp = new Damage(damageByPrinceText, damage, new Vector2(200, 200));
                 break;
             case "run":
+                prince.save();
+                string last = PlayerPrefs.GetString("lastScene");
+                
+                PlayerPrefs.SetString("lastScene", "Battle");
+                SceneManager.LoadScene(last);
                 break;
         }
+        
+        dummy.Select();
+        input.text = "";
+        input.Select();
 
         if (enemy.hp <= 0) {
             victory();
         }
-
-        dummy.Select();
-        input.text = "";
-        input.Select();
     }
 
     void victory() {
+        
         prince.exp += enemy.level * 2 + 5;
         if (prince.level == 1) {
             prince.exp = 10;
@@ -88,6 +99,7 @@ public class Battle : MonoBehaviour {
         }
         prince.save();
         string last = PlayerPrefs.GetString("lastScene");
+        
         PlayerPrefs.SetString("lastScene", "Battle");
         SceneManager.LoadScene(last);
     }

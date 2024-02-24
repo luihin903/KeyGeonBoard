@@ -317,7 +317,21 @@ MonoBehaviour:
   - 'Demon: "Don''t kill me, I am the princess of Ateb Kingdom.'
   - 'Demon: "My father turned me into a demon with his black magic.'
   - You killed the demon.
-  - 'Demon: "Could you"'
+  - 'Princess: "Could you bring me outside of this dungeon?"'
+  - You searched through the room, but you didn't see any human here.
+  - You realized that she was telling the truth.
+  - You decided to do so.
+  - You decided to kill the king.
+  - The door was locked, and you could hear soldiers chatting outside.
+  - 'Princess: "Looks like he wants to trap us inside the dungeon.'
+  - You are surrounded by 5 soldiers.
+  - You secretely left the dungeon and went to the castle.
+  - You fled the scene and ran towards the castle.
+  - You saw the knight was standing next to the king. You knew you need to kill the
+    knight first.
+  - You stabbed your knife into the king's heart. He died.
+  - You became the new king of Ateb Kingdom and kept learning black magic everyday...
+  - The End
 --- !u!4 &250426199
 Transform:
   m_ObjectHideFlags: 0

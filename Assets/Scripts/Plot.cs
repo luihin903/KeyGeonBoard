@@ -38,20 +38,28 @@ public class Act0 : MonoBehaviour {
         "Demon: \"Don't kill me, I am the princess of Ateb Kingdom.",
         "Demon: \"My father turned me into a demon with his black magic.",
         "You killed the demon.",
-        "Demon: \"Could you\""};
+        "Princess: \"Could you bring me outside of this dungeon?\"",
+        "You searched through the room, but you didn't see any human here.",
+        "You realized that she was telling the truth.",
+        "You decided to do so.",
+        "You decided to kill the king.",
+        "The door was locked, and you could hear soldiers chatting outside.",
+        "Princess: \"Looks like he wants to trap us inside the dungeon.",
+        "You are surrounded by 5 soldiers.",
+        "You secretely left the dungeon and went to the castle.",
+        "You fled the scene and ran towards the castle.",
+        "You saw the knight was standing next to the king. You knew you need to kill the knight first.",
+        "You stabbed your knife into the king's heart. He died.",
+        "You became the new king of Ateb Kingdom and kept learning black magic everyday...",
+        "The End"};
 
     void Start() {
-        setP(0);
         choice1.gameObject.SetActive(false);
         choice2.gameObject.SetActive(false);
-
-        if (PlayerPrefs.GetString("lastScene") == "Battle") {
-            setP(6);
-        }
     }
 
     void Update() {
-
+        
         if (Input.GetKeyDown(KeyCode.Return)) {
             
             switch (getP()) {
@@ -91,6 +99,58 @@ public class Act0 : MonoBehaviour {
                     break;
                 case 16:
                     setP(18);
+                    break;
+                case 17:
+                    setP(19);
+                    break;
+                case 18:
+                    setP(21);
+                    break;
+                case 19:
+                    setP(20);
+                    break;
+                case 20:
+                    setP(22);
+                    break;
+                case 21:
+                    setP(23);
+                    PlayerPrefs.SetString("lastScene", "Plot");
+                    SceneManager.LoadScene("L1");
+                    break;
+                case 22:
+                    setP(23);
+                    PlayerPrefs.SetString("lastScene", "Plot");
+                    SceneManager.LoadScene("L1");
+                    break;
+                case 23:
+                    setP(24);
+                    show();
+                    t1.text = "Break the door";
+                    t2.text = "Find another way";
+                    break;
+                case 25:
+                    setP(27);
+                    PlayerPrefs.SetString("lastScene", "Plot");
+                    SceneManager.LoadScene("Battle");
+                    break;
+                case 26:
+                    setP(29);
+                    break;
+                case 27:
+                    setP(28);
+                    break;
+                case 28:
+                    setP(29);
+                    PlayerPrefs.SetString("lastScene", "Plot");
+                    SceneManager.LoadScene("Battle");
+                    break;
+                case 29:
+                    setP(30);
+                    break;
+                case 30:
+                    setP(31);
+                    title.gameObject.SetActive(true);
+                    enter.gameObject.SetActive(false);
                     break;
             }
 
@@ -132,12 +192,16 @@ public class Act0 : MonoBehaviour {
                 setP(10);
                 background.gameObject.SetActive(true);
                 title.gameObject.SetActive(true);
+                enter.gameObject.SetActive(false);
                 break;
             case 11:
                 setP(13);
                 break;
             case 15:
                 setP(16);
+                break;
+            case 24:
+                setP(25);
                 break;
         }
 
@@ -157,10 +221,12 @@ public class Act0 : MonoBehaviour {
             case 2:
                 setP(4);
                 title.gameObject.SetActive(true);
+                enter.gameObject.SetActive(false);
                 break;
             case 7:
                 setP(9);
                 title.gameObject.SetActive(true);
+                enter.gameObject.SetActive(false);
                 break;
             case 8:
                 setP(11);
@@ -173,6 +239,11 @@ public class Act0 : MonoBehaviour {
                 break;
             case 15:
                 setP(17);
+                break;
+            case 24:
+                setP(26);
+                PlayerPrefs.SetString("lastScene", "Plot");
+                SceneManager.LoadScene("L1");
                 break;
         }
 

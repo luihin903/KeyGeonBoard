@@ -10,6 +10,9 @@ public class General : MonoBehaviour {
     public int atk;
     public int def;
     public int exp;
+    public string lastScene;
+    public Vector3 pos;
+    public int plot;
 
     void Update() {
         level = PlayerPrefs.GetInt("level");
@@ -18,6 +21,9 @@ public class General : MonoBehaviour {
         atk = PlayerPrefs.GetInt("atk");
         def = PlayerPrefs.GetInt("def");
         exp = PlayerPrefs.GetInt("exp");
+        lastScene = PlayerPrefs.GetString("lastScene");
+        pos = new Vector3(PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), 0);
+        plot = PlayerPrefs.GetInt("plot");
     }
 
     public void BackToTitle() {
