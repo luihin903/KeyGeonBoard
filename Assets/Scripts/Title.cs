@@ -17,6 +17,8 @@ public class Title : MonoBehaviour {
         PlayerPrefs.SetInt("plot", 0);
         PlayerPrefs.SetString("lastScene", "Title");
 
+        PlayerPrefs.SetInt("dungeonLevel", 1);
+
         SceneManager.LoadScene("Plot");
 
     }

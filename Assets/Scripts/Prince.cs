@@ -14,6 +14,8 @@ public class Prince : MonoBehaviour {
     public GameObject upStairs;
     public GameObject downStairs;
 
+    private AudioSource walk;
+
     void Start() {
         
         rb = GetComponent<Rigidbody2D>();
@@ -49,6 +51,8 @@ public class Prince : MonoBehaviour {
         }
 
         gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), 0);
+
+        walk = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -59,12 +63,24 @@ public class Prince : MonoBehaviour {
         rb.velocity = movement * speed;
 
         if (isMoving()) {
+            if (!walk.isPlaying) walk.Play();
             timer ++;
             if (Random.value - timer/500 < 0.001) {
                 SceneTransition.move = true;
                 PlayerPrefs.SetFloat("x", gameObject.transform.position.x);
                 PlayerPrefs.SetFloat("y", gameObject.transform.position.y);
-                PlayerPrefs.SetString("lastScene", "L1");
+                
+                switch (PlayerPrefs.GetInt("dungeonLevel")) {
+                    case 1:
+                        PlayerPrefs.SetString("lastScene", "L1");
+                        break;
+                    case 2:
+                        PlayerPrefs.SetString("lastScene", "L2");
+                        break;
+                    case 3:
+                        PlayerPrefs.SetString("lastScene", "L3");
+                        break;
+                }
             }
         }
     }
@@ -78,12 +94,35 @@ public class Prince : MonoBehaviour {
             rb.velocity = Vector2.zero;
         }
         else if (collision.gameObject.CompareTag("DownStairs")) {
-            PlayerPrefs.SetString("lastScene", "L1");
-            SceneManager.LoadScene("Plot");
+            
+            switch (PlayerPrefs.GetInt("dungeonLevel")) {
+                case 1:
+                    PlayerPrefs.SetString("lastScene", "L1");
+                    PlayerPrefs.SetInt("dungeonLevel", 2);
+                    SceneManager.LoadScene("L2");
+                    break;
+                case 2:
+                    PlayerPrefs.SetString("lastScene", "L2");
+                    PlayerPrefs.SetInt("dungeonLevel", 2);
+                    SceneManager.LoadScene("Plot");
+                    break;
+            }
+            
         }
         else if (collision.gameObject.CompareTag("UpStairs")) {
-            PlayerPrefs.SetString("lastScene", "L1");
-            SceneManager.LoadScene("Plot");
+            
+            switch (PlayerPrefs.GetInt("dungeonLevel")) {
+                case 1:
+                    PlayerPrefs.SetString("lastScene", "L1");
+                    PlayerPrefs.SetInt("dungeonLevel", 1);
+                    SceneManager.LoadScene("Plot");
+                    break;
+                case 2:
+                    PlayerPrefs.SetString("lastScene", "L2");
+                    PlayerPrefs.SetInt("dungeonLevel", 1);
+                    SceneManager.LoadScene("L1");
+                    break;
+            }
         }
     }
 }

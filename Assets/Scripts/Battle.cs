@@ -24,6 +24,8 @@ public class Battle : MonoBehaviour {
     public TMP_InputField input;
     public TMP_InputField dummy;
 
+    private AudioSource hit;
+
     void Start() {
         
         enemy = new Enemy();
@@ -43,6 +45,9 @@ public class Battle : MonoBehaviour {
 
         input.onEndEdit.AddListener(submit);
         input.Select();
+
+        hit = GetComponent<AudioSource>();
+    
     }
 
     void Update() {
@@ -64,6 +69,7 @@ public class Battle : MonoBehaviour {
             case "attack":
                 int damage = prince.attack(enemy);
                 dp = new Damage(damageByPrinceText, damage, new Vector2(200, 200));
+                hit.Play();
                 break;
             case "run":
                 prince.save();
@@ -107,6 +113,7 @@ public class Battle : MonoBehaviour {
     public void attackPrince() {
         int damage = enemy.attack(prince);
         de = new Damage(damageByEnemyText, damage, new Vector2(400, -200));
+        hit.Play();
         if (prince.hp <= 0) {
             SceneManager.LoadScene("Dead");
         }
