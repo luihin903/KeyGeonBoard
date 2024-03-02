@@ -158,8 +158,10 @@
               "content": "L2",
               "id": 1708315559449,
               "level": "default",
-              "done": false,
-              "start": 1708315559450
+              "done": true,
+              "start": 1708315559450,
+              "focus": false,
+              "end": 1709416361858
             }
           },
           {
@@ -336,6 +338,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1708750508182"
+    "version": "1709416361998"
   }
 }

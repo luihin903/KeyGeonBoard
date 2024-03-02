@@ -80306,6 +80306,7 @@ MonoBehaviour:
   lastScene: 
   pos: {x: 0, y: 0, z: 0}
   plot: 0
+  dungeonLevel: 0
 --- !u!4 &1835814022
 Transform:
   m_ObjectHideFlags: 0
@@ -86000,7 +86001,7 @@ Transform:
   m_GameObject: {fileID: 1933666467}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.32, y: 0, z: 0}
+  m_LocalPosition: {x: -2.48, y: -12.71, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86018,6 +86019,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eaa70a591932de42bd7dafd5cb6b88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
+  last: 
+  plot: 0
   speed: 5
   rb: {fileID: 0}
   horizontalInput: 0

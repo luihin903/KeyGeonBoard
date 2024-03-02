@@ -60947,6 +60947,7 @@ MonoBehaviour:
   lastScene: 
   pos: {x: 0, y: 0, z: 0}
   plot: 0
+  dungeonLevel: 0
 --- !u!4 &1835814022
 Transform:
   m_ObjectHideFlags: 0
@@ -64929,6 +64930,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eaa70a591932de42bd7dafd5cb6b88c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
+  last: 
+  plot: 0
   speed: 5
   rb: {fileID: 0}
   horizontalInput: 0

@@ -13,6 +13,7 @@ public class General : MonoBehaviour {
     public string lastScene;
     public Vector3 pos;
     public int plot;
+    public int dungeonLevel;
 
     void Update() {
         level = PlayerPrefs.GetInt("level");
@@ -24,6 +25,7 @@ public class General : MonoBehaviour {
         lastScene = PlayerPrefs.GetString("lastScene");
         pos = new Vector3(PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), 0);
         plot = PlayerPrefs.GetInt("plot");
+        dungeonLevel = PlayerPrefs.GetInt("dungeonLevel");
     }
 
     public void BackToTitle() {
