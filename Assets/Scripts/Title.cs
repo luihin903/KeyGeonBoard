@@ -1,7 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Title : MonoBehaviour {
+
+    public TMP_Text version;
+
+    void Start() {
+        version.text = "V" + Application.version;
+    }
 
     public void startGame() {
 
@@ -19,6 +26,9 @@ public class Title : MonoBehaviour {
 
         PlayerPrefs.SetInt("critical", 1);
         PlayerPrefs.SetInt("dungeonLevel", 1);
+
+        PlayerPrefs.SetFloat("x", -4);
+        PlayerPrefs.SetFloat("y", 0);
 
         SceneManager.LoadScene("Plot");
 

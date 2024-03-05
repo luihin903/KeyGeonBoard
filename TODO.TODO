@@ -22,8 +22,10 @@
               "content": "Name",
               "id": 1708209281554,
               "level": "default",
-              "done": false,
-              "start": 1708209281554
+              "done": true,
+              "start": 1708209281554,
+              "focus": false,
+              "end": 1709680150646
             }
           },
           {
@@ -225,6 +227,17 @@
               "focus": false,
               "end": 1708633759384
             }
+          },
+          {
+            "key": 1709680161922,
+            "children": [],
+            "todo": {
+              "content": "Magic/Spell/Item",
+              "id": 1709680161922,
+              "level": "default",
+              "done": false,
+              "start": 1709680161922
+            }
           }
         ],
         "todo": {
@@ -274,6 +287,28 @@
               "done": false,
               "start": 1708740693656
             }
+          },
+          {
+            "key": 1709680436209,
+            "children": [],
+            "todo": {
+              "content": "More background stories",
+              "id": 1709680436209,
+              "level": "default",
+              "done": false,
+              "start": 1709680436209
+            }
+          },
+          {
+            "key": 1709680644139,
+            "children": [],
+            "todo": {
+              "content": "Tutorial of selecting choices",
+              "id": 1709680644139,
+              "level": "default",
+              "done": false,
+              "start": 1709680644139
+            }
           }
         ],
         "todo": {
@@ -291,7 +326,7 @@
             "key": 1708750492577,
             "children": [],
             "todo": {
-              "content": "Save",
+              "content": "Save/Load",
               "id": 1708750492577,
               "level": "default",
               "done": false,
@@ -302,11 +337,22 @@
             "key": 1708750494969,
             "children": [],
             "todo": {
-              "content": "Load",
+              "content": "LoadingScene",
               "id": 1708750494969,
               "level": "default",
               "done": false,
               "start": 1708750494969
+            }
+          },
+          {
+            "key": 1709680492686,
+            "children": [],
+            "todo": {
+              "content": "Level Up",
+              "id": 1709680492686,
+              "level": "default",
+              "done": false,
+              "start": 1709680492686
             }
           }
         ],
@@ -317,6 +363,51 @@
           "done": false,
           "start": 1708750484369
         }
+      },
+      {
+        "key": 1709680470618,
+        "children": [
+          {
+            "key": 1709680479208,
+            "children": [],
+            "todo": {
+              "content": "Lock FPS",
+              "id": 1709680479208,
+              "level": "default",
+              "done": false,
+              "start": 1709680479209
+            }
+          },
+          {
+            "key": 1709680617391,
+            "children": [],
+            "todo": {
+              "content": "Freeze Tutorial",
+              "id": 1709680617391,
+              "level": "default",
+              "done": false,
+              "start": 1709680617391
+            }
+          },
+          {
+            "key": 1709680634207,
+            "children": [],
+            "todo": {
+              "content": "Font Color",
+              "id": 1709680634207,
+              "level": "default",
+              "done": false,
+              "start": 1709680634207
+            }
+          }
+        ],
+        "todo": {
+          "content": "Refinements",
+          "id": 1709680470618,
+          "level": "default",
+          "done": false,
+          "start": 1709680470618
+        }
       }
     ],
     "expandKeys": [
@@ -325,7 +416,8 @@
       1708209254067,
       1708209261163,
       1708740689791,
-      1708750484369
+      1708750484369,
+      1709680470618
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -338,6 +430,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1709416361998"
+    "version": "1709680651748"
   }
 }

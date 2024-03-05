@@ -27,6 +27,7 @@ public class Battle : MonoBehaviour {
     private AudioSource hit;
 
     void Start() {
+        PlayerPrefs.SetInt("firstWorld", 0);
         
         enemy = new Enemy();
         prince = new Self();

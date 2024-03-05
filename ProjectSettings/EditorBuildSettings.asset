@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Plot.unity
     guid: 7c93f358c63869d45b1b0d9e50dbd8bf
   - enabled: 1
+    path: Assets/Scenes/World.unity
+    guid: 83cc50484abb0824e83732340fdc251a
+  - enabled: 1
     path: Assets/Scenes/Battle.unity
     guid: 5080172849629264884eb1612f36be25
   - enabled: 1

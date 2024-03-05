@@ -9,7 +9,8 @@ public class Act0 : MonoBehaviour {
     public TextMeshProUGUI story;
 
     public int plot = 0;
-    
+    public bool loading = false;
+
     public Image background;
 
     public Button choice1;
@@ -19,6 +20,8 @@ public class Act0 : MonoBehaviour {
     public TextMeshProUGUI t1;
     public TextMeshProUGUI t2;
     public TextMeshProUGUI enter;
+    public Button clickHere;
+
     public string[] plots = {
         "You are the prince of Ahpla Kingdom, and today is your birthday to turn 18.",
         "Your father (the king of Ahpla Kingdom): Hey son, I need you to marry the princess of Ateb Kingdom.",
@@ -61,102 +64,7 @@ public class Act0 : MonoBehaviour {
     void Update() {
 
         if (Input.GetKeyDown(KeyCode.Return)) {
-            
-            switch (getP()) {
-                case 0:
-                    setP(1);
-                    show();
-                    t1.text = "\"Sure, dad.\"";
-                    t2.text = "\"No way, I am not marrying someone I don\'t love.\"";
-                    break;
-                case 3:
-                    setP(5);
-                    break;
-                case 5:
-                    setP(6);
-                    PlayerPrefs.SetString("lastScene", "Plot");
-                    SceneManager.LoadScene("Battle");
-                    break;
-                case 6:
-                    PlayerPrefs.SetInt("critical", 0);
-                    setP(7);
-                    show();
-                    t1.text = "\"Yes, I am.\"";
-                    t2.text = "\"No, I am not.\"";
-                    break;
-                case 12:
-                    setP(13);
-                    break;
-                case 13:
-                    setP(14);
-                    PlayerPrefs.SetString("lastScene", "Plot");
-                    SceneManager.LoadScene("L1");
-                    break;
-                case 14:
-                    setP(15);
-                    show();
-                    t1.text = "\"But you are obviously a demon...\"";
-                    t2.text = "\"Shut up and go to hell!\"";
-                    break;
-                case 16:
-                    setP(18);
-                    break;
-                case 17:
-                    setP(19);
-                    break;
-                case 18:
-                    setP(21);
-                    break;
-                case 19:
-                    setP(20);
-                    break;
-                case 20:
-                    setP(22);
-                    break;
-                case 21:
-                    setP(23);
-                    PlayerPrefs.SetString("lastScene", "Plot");
-                    PlayerPrefs.SetInt("dungeonLevel", 2);
-                    SceneManager.LoadScene("L2");
-                    break;
-                case 22:
-                    setP(23);
-                    PlayerPrefs.SetString("lastScene", "Plot");
-                    PlayerPrefs.SetInt("dungeonLevel", 2);
-                    SceneManager.LoadScene("L2");
-                    break;
-                case 23:
-                    setP(24);
-                    show();
-                    t1.text = "Break the door";
-                    t2.text = "Find another way";
-                    break;
-                case 25:
-                    setP(27);
-                    PlayerPrefs.SetString("lastScene", "Plot");
-                    SceneManager.LoadScene("Battle");
-                    break;
-                case 26:
-                    setP(29);
-                    break;
-                case 27:
-                    setP(28);
-                    break;
-                case 28:
-                    setP(29);
-                    PlayerPrefs.SetString("lastScene", "Plot");
-                    SceneManager.LoadScene("Battle");
-                    break;
-                case 29:
-                    setP(30);
-                    break;
-                case 30:
-                    setP(31);
-                    title.gameObject.SetActive(true);
-                    enter.gameObject.SetActive(false);
-                    break;
-            }
-
+            enterPressed();
         }
 
         story.text = plots[PlayerPrefs.GetInt("plot")];
@@ -196,6 +104,7 @@ public class Act0 : MonoBehaviour {
                 background.gameObject.SetActive(true);
                 title.gameObject.SetActive(true);
                 enter.gameObject.SetActive(false);
+                clickHere.gameObject.SetActive(false);
                 break;
             case 11:
                 setP(13);
@@ -226,11 +135,13 @@ public class Act0 : MonoBehaviour {
                 setP(4);
                 title.gameObject.SetActive(true);
                 enter.gameObject.SetActive(false);
+                clickHere.gameObject.SetActive(false);
                 break;
             case 7:
                 setP(9);
                 title.gameObject.SetActive(true);
                 enter.gameObject.SetActive(false);
+                clickHere.gameObject.SetActive(false);
                 break;
             case 8:
                 setP(11);
@@ -247,26 +158,134 @@ public class Act0 : MonoBehaviour {
             case 24:
                 setP(26);
                 PlayerPrefs.SetString("lastScene", "Plot");
-                SceneManager.LoadScene("L1");
+                SceneManager.LoadScene("L1"); loading = true;
+                break;
+        }
+
+    }
+
+    public void enterPressed() { if(loading) return;
+          
+        switch (getP()) {
+            case 0:
+                setP(1);
+                show();
+                t1.text = "\"Sure, dad.\"";
+                t2.text = "\"No way, I am not marrying someone I don\'t love.\"";
+                break;
+            case 3:
+                // setP(5);
+                setP(6);
+                PlayerPrefs.SetString("lastScene", "Plot");
+                PlayerPrefs.SetInt("firstWorld", 1);
+                SceneManager.LoadScene("World"); loading = true;
+                break;
+            case 5:
+                setP(6);
+                PlayerPrefs.SetString("lastScene", "Plot");
+                // SceneManager.LoadScene("Battle"); loading = true;
+                PlayerPrefs.SetInt("firstWorld", 1);
+                SceneManager.LoadScene("World"); loading = true;
+                break;
+            case 6:
+                PlayerPrefs.SetInt("critical", 0);
+                setP(7);
+                show();
+                t1.text = "\"Yes, I am.\"";
+                t2.text = "\"No, I am not.\"";
+                break;
+            case 12:
+                setP(13);
+                break;
+            case 13:
+                setP(14);
+                PlayerPrefs.SetString("lastScene", "Plot");
+                SceneManager.LoadScene("L1"); loading = true;
+                break;
+            case 14:
+                setP(15);
+                show();
+                t1.text = "\"But you are obviously a demon...\"";
+                t2.text = "\"Shut up and go to hell!\"";
+                break;
+            case 16:
+                setP(18);
+                break;
+            case 17:
+                setP(19);
+                break;
+            case 18:
+                setP(21);
+                break;
+            case 19:
+                setP(20);
+                break;
+            case 20:
+                setP(22);
+                break;
+            case 21:
+                setP(23);
+                PlayerPrefs.SetString("lastScene", "Plot");
+                PlayerPrefs.SetInt("dungeonLevel", 2);
+                SceneManager.LoadScene("L2"); loading = true;
+                break;
+            case 22:
+                setP(23);
+                PlayerPrefs.SetString("lastScene", "Plot");
+                PlayerPrefs.SetInt("dungeonLevel", 2);
+                SceneManager.LoadScene("L2"); loading = true;
+                break;
+            case 23:
+                setP(24);
+                show();
+                t1.text = "Break the door";
+                t2.text = "Find another way";
+                break;
+            case 25:
+                setP(27);
+                PlayerPrefs.SetString("lastScene", "Plot");
+                SceneManager.LoadScene("Battle"); loading = true;
+                break;
+            case 26:
+                setP(29);
+                break;
+            case 27:
+                setP(28);
+                break;
+            case 28:
+                setP(29);
+                PlayerPrefs.SetString("lastScene", "Plot");
+                SceneManager.LoadScene("Battle"); loading = true;
+                break;
+            case 29:
+                setP(30);
+                break;
+            case 30:
+                setP(31);
+                title.gameObject.SetActive(true);
+                enter.gameObject.SetActive(false);
+                clickHere.gameObject.SetActive(false);
                 break;
         }
 
     }
 
     public void Title() {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("Title"); loading = true;
     }
 
     private void show() {
         choice1.gameObject.SetActive(true);
         choice2.gameObject.SetActive(true);
         enter.gameObject.SetActive(false);
+        clickHere.gameObject.SetActive(false);
     }
 
     private void hide() {
         choice1.gameObject.SetActive(false);
         choice2.gameObject.SetActive(false);
         enter.gameObject.SetActive(true);
+        clickHere.gameObject.SetActive(true);
     }
 
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Prince : MonoBehaviour {
 
@@ -20,6 +21,10 @@ public class Prince : MonoBehaviour {
     public GameObject upStairs;
     public GameObject downStairs;
 
+    public TMP_Text findDemon;
+    public TMP_Text leave;
+    public TMP_Text findAnother;
+
     private AudioSource walk;
 
     void Start() {
@@ -33,6 +38,18 @@ public class Prince : MonoBehaviour {
 
         show(upStairs);
         show(downStairs);
+
+        switch (plot) {
+            case 14:
+                show(findDemon);
+                break;
+            case 23:
+                show(leave);
+                break;
+            case 26:
+                show(findAnother);
+                break;
+        }
 
         switch(level) {
             case 1:
@@ -170,6 +187,10 @@ public class Prince : MonoBehaviour {
     // }
 
     private void show(GameObject target) {
+        target.gameObject.SetActive(true);
+    }
+
+    private void show(TMP_Text target) {
         target.gameObject.SetActive(true);
     }
 
