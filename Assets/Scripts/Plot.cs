@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Act0 : MonoBehaviour {
     
@@ -18,7 +19,6 @@ public class Act0 : MonoBehaviour {
     public TextMeshProUGUI t1;
     public TextMeshProUGUI t2;
     public TextMeshProUGUI enter;
-
     public string[] plots = {
         "You are the prince of Ahpla Kingdom, and today is your birthday to turn 18.",
         "Your father (the king of Ahpla Kingdom): Hey son, I need you to marry the princess of Ateb Kingdom.",
@@ -59,7 +59,7 @@ public class Act0 : MonoBehaviour {
     }
 
     void Update() {
-        
+
         if (Input.GetKeyDown(KeyCode.Return)) {
             
             switch (getP()) {
@@ -78,6 +78,7 @@ public class Act0 : MonoBehaviour {
                     SceneManager.LoadScene("Battle");
                     break;
                 case 6:
+                    PlayerPrefs.SetInt("critical", 0);
                     setP(7);
                     show();
                     t1.text = "\"Yes, I am.\"";
@@ -203,6 +204,7 @@ public class Act0 : MonoBehaviour {
                 setP(16);
                 break;
             case 24:
+                PlayerPrefs.SetInt("critical", 1);
                 setP(25);
                 break;
         }

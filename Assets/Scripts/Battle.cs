@@ -72,6 +72,10 @@ public class Battle : MonoBehaviour {
                 hit.Play();
                 break;
             case "run":
+                if (PlayerPrefs.GetInt("critical") == 1) {
+                    Debug.Log("Critical Battle is not allowed to run");
+                    break;
+                }
                 prince.save();
                 string last = PlayerPrefs.GetString("lastScene");
                 
