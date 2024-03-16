@@ -2,3 +2,5 @@ Library/*
 Library/.*
 Builds/*
 Builds/.*
+Temp/*
+Temp/.*

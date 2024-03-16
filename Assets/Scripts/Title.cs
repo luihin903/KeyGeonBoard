@@ -10,7 +10,7 @@ public class Title : MonoBehaviour {
         version.text = "V" + Application.version;
     }
 
-    public void startGame() {
+    public void StartGame() {
 
         int level = 1;
 
@@ -32,6 +32,11 @@ public class Title : MonoBehaviour {
 
         SceneManager.LoadScene("Plot");
 
+    }
+
+    public void Endings() {
+        PlayerPrefs.SetString("lastScene", "Title");
+        SceneManager.LoadScene("Endings");
     }
 
     public void Exit() {
