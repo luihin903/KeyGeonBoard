@@ -11,8 +11,10 @@
               "content": "Background",
               "id": 1708209274147,
               "level": "default",
-              "done": false,
-              "start": 1708209274147
+              "done": true,
+              "start": 1708209274147,
+              "focus": false,
+              "end": 1710636456619
             }
           },
           {
@@ -46,8 +48,10 @@
               "content": "Endings",
               "id": 1708750476323,
               "level": "default",
-              "done": false,
-              "start": 1708750476324
+              "done": true,
+              "start": 1708750476324,
+              "focus": false,
+              "end": 1710636453347
             }
           },
           {
@@ -430,6 +434,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1709680651748"
+    "version": "1710636456793"
   }
 }

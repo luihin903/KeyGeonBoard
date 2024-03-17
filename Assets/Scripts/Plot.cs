@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
+using static Static;
 
 public class Act0 : MonoBehaviour {
     
@@ -101,6 +102,7 @@ public class Act0 : MonoBehaviour {
                 break;
             case 8:
                 setP(10);
+                pp.setBool("ending3", true);
                 background.gameObject.SetActive(true);
                 title.gameObject.SetActive(true);
                 enter.gameObject.SetActive(false);
@@ -133,12 +135,14 @@ public class Act0 : MonoBehaviour {
                 break;
             case 2:
                 setP(4);
+                pp.setBool("ending1", true);
                 title.gameObject.SetActive(true);
                 enter.gameObject.SetActive(false);
                 clickHere.gameObject.SetActive(false);
                 break;
             case 7:
                 setP(9);
+                pp.setBool("ending2", true);
                 title.gameObject.SetActive(true);
                 enter.gameObject.SetActive(false);
                 clickHere.gameObject.SetActive(false);

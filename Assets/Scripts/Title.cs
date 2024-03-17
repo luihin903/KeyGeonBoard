@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using static Static;
 
 public class Title : MonoBehaviour {
 
@@ -8,6 +9,16 @@ public class Title : MonoBehaviour {
 
     void Start() {
         version.text = "V" + Application.version;
+
+        if (pp.getBool("initialized") == false) {
+
+            pp.setBool("ending1", false);
+            pp.setBool("ending2", false);
+            pp.setBool("ending3", false);
+            pp.setBool("ending4", false);
+
+            pp.setBool("initialized", true);
+        }
     }
 
     public void StartGame() {
