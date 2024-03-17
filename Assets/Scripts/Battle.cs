@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static Static;
 
 public class Battle : MonoBehaviour {
 
@@ -39,10 +40,12 @@ public class Battle : MonoBehaviour {
             background.gameObject.SetActive(false);
         }
 
+        if (pp.getBool("freezing") == false) {
+            InvokeRepeating("attackPrince", 1, 5/enemy.speed);
+        }
+
         enemyHp.maxValue = enemy.maxHp;
         princeHp.maxValue = prince.maxHp;
-
-        InvokeRepeating("attackPrince", 5/enemy.speed, 5/enemy.speed);
 
         input.onEndEdit.AddListener(submit);
         input.Select();
@@ -61,6 +64,12 @@ public class Battle : MonoBehaviour {
 
         if (dp != null) dp.update();
         if (de != null) de.update();
+
+        if (pp.getBool("freezing") == true) {
+            dummy.Select();
+            input.text = "";
+            input.Select();
+        }
     }
 
     void submit(string action) {
@@ -71,6 +80,10 @@ public class Battle : MonoBehaviour {
                 int damage = prince.attack(enemy);
                 dp = new Damage(damageByPrinceText, damage, new Vector2(200, 200));
                 hit.Play();
+                if (pp.getBool("freezing") == true) {
+                    InvokeRepeating("attackPrince", 1, 5/enemy.speed);
+                    pp.setBool("freezing", false);
+                }
                 break;
             case "run":
                 if (PlayerPrefs.GetInt("critical") == 1) {
@@ -82,6 +95,21 @@ public class Battle : MonoBehaviour {
                 
                 PlayerPrefs.SetString("lastScene", "Battle");
                 SceneManager.LoadScene(last);
+                break;
+        
+            // Cheat Code/Command
+            case "iat312 exit":
+                PlayerPrefs.DeleteAll();
+                PlayerPrefs.Save();
+                Application.Quit();
+                break;
+            case "iat312 levelup":
+                prince.level ++;
+                prince.atk += 2;
+                prince.def ++;
+                pp.setInt("level", prince.level);
+                pp.setInt("atk", prince.atk);
+                pp.setInt("def", prince.def);
                 break;
         }
         

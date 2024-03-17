@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 using static Static;
+using System.Linq;
 
 public class Act0 : MonoBehaviour {
     
@@ -12,7 +13,9 @@ public class Act0 : MonoBehaviour {
     public int plot = 0;
     public bool loading = false;
 
-    public Image background;
+    public GameObject rural;
+    public GameObject castle;
+    public GameObject dungeon;
 
     public Button choice1;
     public Button choice2;
@@ -69,6 +72,7 @@ public class Act0 : MonoBehaviour {
         }
 
         story.text = plots[PlayerPrefs.GetInt("plot")];
+        chooseBackground();
     }
 
     private int getP() {
@@ -88,11 +92,11 @@ public class Act0 : MonoBehaviour {
         switch (getP()) {
             case 1:
                 setP(3);
-                background.gameObject.SetActive(true);
+                rural.gameObject.SetActive(true);
                 break;
             case 2:
                 setP(3);
-                background.gameObject.SetActive(true);
+                rural.gameObject.SetActive(true);
                 break;
             case 7:
                 setP(8);
@@ -103,7 +107,7 @@ public class Act0 : MonoBehaviour {
             case 8:
                 setP(10);
                 pp.setBool("ending3", true);
-                background.gameObject.SetActive(true);
+                rural.gameObject.SetActive(true);
                 title.gameObject.SetActive(true);
                 enter.gameObject.SetActive(false);
                 clickHere.gameObject.SetActive(false);
@@ -266,6 +270,7 @@ public class Act0 : MonoBehaviour {
                 break;
             case 30:
                 setP(31);
+                pp.setBool("ending4", true);
                 title.gameObject.SetActive(true);
                 enter.gameObject.SetActive(false);
                 clickHere.gameObject.SetActive(false);
@@ -292,4 +297,34 @@ public class Act0 : MonoBehaviour {
         clickHere.gameObject.SetActive(true);
     }
 
+    private void chooseBackground() {
+        int[] castle = {0, 1, 2, 7, 8, 9, 11, 12, 28, 29, 30, 31};
+        int[] rural = {3, 4, 5, 6, 10, 13};
+        int[] dungeon = {14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27};
+
+        // foreach (int i in castle) if (getP() == i) setCastle();
+        // foreach (int i in rural) if (getP() == i) setRural();
+        // foreach (int i in dungeon) if (getP() == i) setDungeon();
+        if (castle.Contains(getP())) setCastle();
+        else if (rural.Contains(getP())) setRural();
+        else if (dungeon.Contains(getP())) setDungeon();
+    }
+
+    private void setCastle() {
+        setActive(castle, true);
+        setActive(rural, false);
+        setActive(dungeon, false);
+    }
+
+    private void setRural() {
+        setActive(rural, true);
+        setActive(dungeon, false);
+        setActive(castle, false);
+    }
+
+    private void setDungeon() {
+        setActive(dungeon, true);
+        setActive(castle, false);
+        setActive(rural, false);
+    }
 }

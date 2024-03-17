@@ -16,6 +16,7 @@ public class Title : MonoBehaviour {
             pp.setBool("ending2", false);
             pp.setBool("ending3", false);
             pp.setBool("ending4", false);
+            pp.setBool("freezing", true);
 
             pp.setBool("initialized", true);
         }

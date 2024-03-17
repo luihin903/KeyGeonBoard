@@ -389,8 +389,10 @@
               "content": "Freeze Tutorial",
               "id": 1709680617391,
               "level": "default",
-              "done": false,
-              "start": 1709680617391
+              "done": true,
+              "start": 1709680617391,
+              "focus": false,
+              "end": 1710661936564
             }
           },
           {
@@ -434,6 +436,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1710636456793"
+    "version": "1710661936715"
   }
 }

@@ -1,8 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Static {
     public static int TRUE = 1;
     public static int FALSE = 0;
+
+    public static void setActive(GameObject target, bool value) {
+        target.gameObject.SetActive(value);
+    }
+
+    public static void setActive(Image target, bool value) {
+        target.gameObject.SetActive(value);
+    }
 
     public static class pp {
 
