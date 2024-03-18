@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using static Static;
 
 public class Status : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class Status : MonoBehaviour {
     public TMP_Text hp;
     public TMP_Text atk;
     public TMP_Text def;
+    public TMP_Text potion;
     public Button close;
 
     public bool open = false;
@@ -26,7 +28,7 @@ public class Status : MonoBehaviour {
             hp.text = "HP: " + prince.hp + "/" + prince.maxHp;
             atk.text = "ATK: " + prince.atk;
             def.text = "DEF: " + prince.def; 
-
+            potion.text = "potion: heal yourself (" + pp.getInt("potion") + " left)";
         }
 
     }

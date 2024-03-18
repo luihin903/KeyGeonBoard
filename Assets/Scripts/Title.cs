@@ -16,7 +16,6 @@ public class Title : MonoBehaviour {
             pp.setBool("ending2", false);
             pp.setBool("ending3", false);
             pp.setBool("ending4", false);
-            pp.setBool("freezing", true);
 
             pp.setBool("initialized", true);
         }
@@ -26,21 +25,24 @@ public class Title : MonoBehaviour {
 
         int level = 1;
 
-        PlayerPrefs.SetInt("level", level);
-        PlayerPrefs.SetInt("maxHp", level * 10 * 2);
-        PlayerPrefs.SetInt("hp", level * 10 * 2);
-        PlayerPrefs.SetInt("atk", level * 2 * 2);
-        PlayerPrefs.SetInt("def", level);
-        PlayerPrefs.SetInt("exp", 0);
+        pp.setInt("level", level);
+        pp.setInt("maxHp", level * 10 * 2);
+        pp.setInt("hp", level * 10 * 2);
+        pp.setInt("atk", level * 2 * 2);
+        pp.setInt("def", level);
+        pp.setInt("exp", 0);
 
-        PlayerPrefs.SetInt("plot", 0);
+        pp.setInt("plot", 0);
         PlayerPrefs.SetString("lastScene", "Title");
 
-        PlayerPrefs.SetInt("critical", 1);
-        PlayerPrefs.SetInt("dungeonLevel", 1);
+        pp.setInt("critical", 1);
+        pp.setInt("dungeonLevel", 1);
 
         PlayerPrefs.SetFloat("x", -4);
         PlayerPrefs.SetFloat("y", 0);
+
+        pp.setBool("freezing", true);
+        pp.setInt("potion", 5);
 
         SceneManager.LoadScene("Plot");
 

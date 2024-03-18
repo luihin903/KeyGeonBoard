@@ -64,12 +64,6 @@ public class Battle : MonoBehaviour {
 
         if (dp != null) dp.update();
         if (de != null) de.update();
-
-        if (pp.getBool("freezing") == true) {
-            dummy.Select();
-            input.text = "";
-            input.Select();
-        }
     }
 
     void submit(string action) {
@@ -96,7 +90,13 @@ public class Battle : MonoBehaviour {
                 PlayerPrefs.SetString("lastScene", "Battle");
                 SceneManager.LoadScene(last);
                 break;
-        
+            case "potion":
+                int potion = pp.getInt("potion");
+                if (potion >= 1) {
+                    prince.hp = prince.maxHp;
+                    pp.setInt("potion", potion - 1);
+                }
+                break;
             // Cheat Code/Command
             case "iat312 exit":
                 PlayerPrefs.DeleteAll();
@@ -124,7 +124,7 @@ public class Battle : MonoBehaviour {
 
     void victory() {
         
-        prince.exp += enemy.level * 2 + 5;
+        prince.exp += enemy.level * 3 + 4;
         if (prince.level == 1) {
             prince.exp = 10;
         }

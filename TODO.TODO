@@ -234,7 +234,19 @@
           },
           {
             "key": 1709680161922,
-            "children": [],
+            "children": [
+              {
+                "key": 1710725309605,
+                "children": [],
+                "todo": {
+                  "content": "potion",
+                  "id": 1710725309605,
+                  "level": "default",
+                  "done": false,
+                  "start": 1710725309605
+                }
+              }
+            ],
             "todo": {
               "content": "Magic/Spell/Item",
               "id": 1709680161922,
@@ -414,6 +426,40 @@
           "done": false,
           "start": 1709680470618
         }
+      },
+      {
+        "key": 1710725279293,
+        "children": [
+          {
+            "key": 1710725286357,
+            "children": [],
+            "todo": {
+              "content": "Add potion",
+              "id": 1710725286357,
+              "level": "default",
+              "done": false,
+              "start": 1710725286357
+            }
+          },
+          {
+            "key": 1710725367677,
+            "children": [],
+            "todo": {
+              "content": "change exp",
+              "id": 1710725367677,
+              "level": "default",
+              "done": false,
+              "start": 1710725367677
+            }
+          }
+        ],
+        "todo": {
+          "content": "Changes",
+          "id": 1710725279293,
+          "level": "default",
+          "done": false,
+          "start": 1710725279293
+        }
       }
     ],
     "expandKeys": [
@@ -423,7 +469,9 @@
       1708209261163,
       1708740689791,
       1708750484369,
-      1709680470618
+      1709680470618,
+      1710725279293,
+      1709680161922
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -436,6 +484,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1710661936715"
+    "version": "1710725369873"
   }
 }
