@@ -11,6 +11,7 @@ public class Status : MonoBehaviour {
     public TMP_Text atk;
     public TMP_Text def;
     public TMP_Text potion;
+    public TMP_Text fire;
     public Button close;
 
     public bool open = false;
@@ -26,9 +27,16 @@ public class Status : MonoBehaviour {
 
             level.text = "Lv. " + prince.level + " (" + prince.exp + "/" + prince.level*10 + ")";
             hp.text = "HP: " + prince.hp + "/" + prince.maxHp;
-            atk.text = "ATK: " + prince.atk;
+            if (pp.getBool("Chest 1")) {
+                atk.text = "ATK: " + prince.atk;
+            }
+            else {
+                atk.text = $"ATK: {prince.atk}+5";
+            }
             def.text = "DEF: " + prince.def; 
             potion.text = "potion: heal yourself (" + pp.getInt("potion") + " left)";
+            setActive(fire, !pp.getBool("Chest 2"));
+        
         }
 
     }

@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Static {
     public static int TRUE = 1;
@@ -9,7 +9,7 @@ public class Static {
         target.gameObject.SetActive(value);
     }
 
-    public static void setActive(Image target, bool value) {
+    public static void setActive(TMP_Text target, bool value) {
         target.gameObject.SetActive(value);
     }
 

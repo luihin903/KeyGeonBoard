@@ -8,6 +8,7 @@ public class Battle : MonoBehaviour {
 
     public Enemy enemy;
     public Self prince;
+    public FireLighter fireLighter;
 
     public GameObject background;
 
@@ -92,9 +93,15 @@ public class Battle : MonoBehaviour {
                 break;
             case "potion":
                 int potion = pp.getInt("potion");
-                if (potion >= 1) {
+                if (potion >= 1 && prince.level != 1) {
                     prince.hp = prince.maxHp;
                     pp.setInt("potion", potion - 1);
+                }
+                break;
+            case "firelighter":
+                if (fireLighter == null && pp.getBool("Chest 2") == false) {
+                    fireLighter = new FireLighter(enemy);
+                    InvokeRepeating("fire", 0f, 2f);
                 }
                 break;
             // Cheat Code/Command
@@ -149,6 +156,16 @@ public class Battle : MonoBehaviour {
         hit.Play();
         if (prince.hp <= 0) {
             SceneManager.LoadScene("Dead");
+        }
+    }
+
+    private void fire() {
+        int damage = fireLighter.attack(enemy);
+        dp = new Damage(damageByPrinceText, damage, new Vector2(200, 200));
+        hit.Play();
+        
+        if (enemy.hp <= 0) {
+            victory();
         }
     }
 

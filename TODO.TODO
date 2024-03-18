@@ -177,8 +177,21 @@
               "content": "L3",
               "id": 1708315562761,
               "level": "default",
+              "done": true,
+              "start": 1708315562761,
+              "focus": false,
+              "end": 1710736536758
+            }
+          },
+          {
+            "key": 1710736538766,
+            "children": [],
+            "todo": {
+              "content": "Chests",
+              "id": 1710736538766,
+              "level": "default",
               "done": false,
-              "start": 1708315562761
+              "start": 1710736538766
             }
           }
         ],
@@ -239,13 +252,24 @@
                 "key": 1710725309605,
                 "children": [],
                 "todo": {
-                  "content": "potion",
+                  "content": "Potion",
                   "id": 1710725309605,
                   "level": "default",
                   "done": true,
                   "start": 1710725309605,
                   "focus": false,
-                  "end": 1710729909629
+                  "end": 1710747741892
+                }
+              },
+              {
+                "key": 1710747722892,
+                "children": [],
+                "todo": {
+                  "content": "FireLighter",
+                  "id": 1710747722892,
+                  "level": "default",
+                  "done": false,
+                  "start": 1710747722892
                 }
               }
             ],
@@ -255,6 +279,17 @@
               "level": "default",
               "done": false,
               "start": 1709680161922
+            }
+          },
+          {
+            "key": 1710747706452,
+            "children": [],
+            "todo": {
+              "content": "Respond on invalid command",
+              "id": 1710747706452,
+              "level": "default",
+              "done": false,
+              "start": 1710747706452
             }
           }
         ],
@@ -372,6 +407,17 @@
               "done": false,
               "start": 1709680492686
             }
+          },
+          {
+            "key": 1710750532237,
+            "children": [],
+            "todo": {
+              "content": "BGM",
+              "id": 1710750532237,
+              "level": "default",
+              "done": false,
+              "start": 1710750532238
+            }
           }
         ],
         "todo": {
@@ -419,6 +465,17 @@
               "done": false,
               "start": 1709680634207
             }
+          },
+          {
+            "key": 1710745887526,
+            "children": [],
+            "todo": {
+              "content": "Disable Copy & Paste",
+              "id": 1710745887526,
+              "level": "default",
+              "done": false,
+              "start": 1710745887526
+            }
           }
         ],
         "todo": {
@@ -436,7 +493,7 @@
             "key": 1710725286357,
             "children": [],
             "todo": {
-              "content": "Add potion",
+              "content": "Add Chests",
               "id": 1710725286357,
               "level": "default",
               "done": false,
@@ -486,6 +543,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1710729909835"
+    "version": "1710750535552"
   }
 }

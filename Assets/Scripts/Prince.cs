@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 using static Static;
 
 public class Prince : MonoBehaviour {
@@ -27,6 +28,8 @@ public class Prince : MonoBehaviour {
     public TMP_Text findAnother;
 
     private AudioSource walk;
+
+    public TMP_Text notification;
 
     void Start() {
         level = PlayerPrefs.GetInt("dungeonLevel");
@@ -117,6 +120,7 @@ public class Prince : MonoBehaviour {
     }
 
     public void OnCollisionStay2D(Collision2D collision) { if (loading) return;
+        
         if (collision.gameObject.CompareTag("Wall")) {
             rb.velocity = Vector2.zero;
         }
@@ -173,34 +177,36 @@ public class Prince : MonoBehaviour {
                     break;
             }
         }
+        else if (collision.gameObject.CompareTag("Chest")) {
+            
+            collision.gameObject.SetActive(false);
+            pp.setBool(collision.gameObject.name, false);
+
+            switch (collision.gameObject.name) {
+                
+                case "Chest 1":
+                    int atk = pp.getInt("atk");
+                    notify($"You opened a chest.\nYou found \"Monster Slayer\",\nATK = {atk} -> {atk}+5.\n(Press tab to inspect)");
+                    break;
+                case "Chest 2":
+                    notify("You opened a chest.\nYou found \"Spell-FireLighter\".\n(Press tab to inspect)");
+                    break;
+                case "Chest 3":
+                    notify("You opened a chest.\nIt was empty.");
+                    break;
+                case "Chest 4":
+                    pp.setInt("potion", pp.getInt("potion") + 5);
+                    notify("You opened a chest.\nYou found 5 potions.\n(Press tab to inspect)");
+                    break;
+            }
+        }
+    
     }
 
     private void setPos(float x, float y) {
         PlayerPrefs.SetFloat("x", x);
         PlayerPrefs.SetFloat("y", y);
     }
-
-    // private void show(string target) {
-    //     switch (target) {
-    //         case "up":
-    //             upStairs.gameObject.SetActive(true);
-    //             break;
-    //         case "down":
-    //             downStairs.gameObject.SetActive(true);
-    //             break;
-    //     }
-    // }
-
-    // private void hide(string target) {
-    //     switch (target) {
-    //         case "up":
-    //             upStairs.gameObject.SetActive(false);
-    //             break;
-    //         case "down":
-    //             downStairs.gameObject.SetActive(false);
-    //             break;
-    //     }
-    // }
 
     private void show(GameObject target) {
         target.gameObject.SetActive(true);
@@ -212,5 +218,16 @@ public class Prince : MonoBehaviour {
 
     private void hide(GameObject target) {
         target.gameObject.SetActive(false);
+    }
+
+    private void notify(string message) {
+        notification.gameObject.SetActive(true);
+        notification.text = message;
+        StartCoroutine(disappear());
+    }
+
+    private IEnumerator disappear() {
+        yield return new WaitForSeconds(4f);
+        notification.gameObject.SetActive(false);
     }
 }

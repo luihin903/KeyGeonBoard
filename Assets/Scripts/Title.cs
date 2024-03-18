@@ -44,6 +44,11 @@ public class Title : MonoBehaviour {
         pp.setBool("freezing", true);
         pp.setInt("potion", 5);
 
+        pp.setBool("Chest 1", true);
+        pp.setBool("Chest 2", true);
+        pp.setBool("Chest 3", true);
+        pp.setBool("Chest 4", true);
+
         SceneManager.LoadScene("Plot");
 
     }

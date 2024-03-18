@@ -12,8 +12,6 @@ public class World : MonoBehaviour {
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        Debug.Log(PlayerPrefs.GetFloat("x"));
-        Debug.Log(PlayerPrefs.GetFloat("y"));
         gameObject.transform.position = new Vector3(PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), 0);
         walkable = true;
         walk = GetComponent<AudioSource>();
