@@ -11,7 +11,7 @@ public class Enemy : Character {
 
         if (PlayerPrefs.GetInt("critical") == 1) {
             if (PlayerPrefs.GetInt("level") == 1) this.level = 1;
-            else this.level = 6;
+            else this.level = 10;
         }
         else {
             offset = (int) Math.Round(UnityEngine.Random.value * 3);

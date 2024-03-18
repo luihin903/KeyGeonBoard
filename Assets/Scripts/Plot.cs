@@ -234,14 +234,14 @@ public class Act0 : MonoBehaviour {
             case 21:
                 setP(23);
                 PlayerPrefs.SetString("lastScene", "Plot");
-                PlayerPrefs.SetInt("dungeonLevel", 2);
-                SceneManager.LoadScene("L2"); loading = true;
+                PlayerPrefs.SetInt("dungeonLevel", 3);
+                SceneManager.LoadScene("L3"); loading = true;
                 break;
             case 22:
                 setP(23);
                 PlayerPrefs.SetString("lastScene", "Plot");
-                PlayerPrefs.SetInt("dungeonLevel", 2);
-                SceneManager.LoadScene("L2"); loading = true;
+                PlayerPrefs.SetInt("dungeonLevel", 3);
+                SceneManager.LoadScene("L3"); loading = true;
                 break;
             case 23:
                 setP(24);

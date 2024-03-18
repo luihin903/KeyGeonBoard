@@ -31,5 +31,13 @@ public class Static {
             if (value) PlayerPrefs.SetInt(key, TRUE);
             else PlayerPrefs.SetInt(key, FALSE);
         }
+
+        // String
+        public static string getString(string key) {
+            return PlayerPrefs.GetString(key);
+        }
+        public static void setString(string key, string value) {
+            PlayerPrefs.SetString(key, value);
+        }
     }
 }

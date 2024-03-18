@@ -41,7 +41,7 @@ public class Battle : MonoBehaviour {
         }
 
         if (pp.getBool("freezing") == false) {
-            InvokeRepeating("attackPrince", 1, 5/enemy.speed);
+            InvokeRepeating("attackPrince", 5/enemy.speed, 5/enemy.speed);
         }
 
         enemyHp.maxValue = enemy.maxHp;

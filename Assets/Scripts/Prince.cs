@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using static Static;
 
 public class Prince : MonoBehaviour {
 
@@ -63,11 +64,13 @@ public class Prince : MonoBehaviour {
                 break;
             case 2:
                 if (last == "L1") setPos(0.32f, 0);
-                else if (last == "Plot") setPos(-2.56f, -12.80f);
-                
-                if (plot != 14) hide(downStairs);
+                else if (last == "L3") setPos(-2.56f, -12.80f);
                 break;
             case 3:
+                if (last == "L2") setPos(9.28f, -7.04f);
+                else if (last == "Plot") setPos(-6.08f, 10.24f);
+
+                if (plot != 14) hide(downStairs);
                 break;
         }     
 
@@ -121,16 +124,23 @@ public class Prince : MonoBehaviour {
             
             switch (level) {
                 case 1:
-                    PlayerPrefs.SetString("lastScene", "L1");
-                    PlayerPrefs.SetInt("dungeonLevel", 2);
+                    pp.setString("lastScene", "L1");
+                    pp.setInt("dungeonLevel", 2);
                     Debug.Log("L1 -> L2 (Down)");
                     loading = true;
                     SceneManager.LoadScene("L2");
                     break;
                 case 2:
-                    PlayerPrefs.SetString("lastScene", "L2");
-                    PlayerPrefs.SetInt("dungeonLevel", 2);
-                    Debug.Log("L2 -> Plot (Down)");
+                    pp.setString("lastScene", "L2");
+                    pp.setInt("dungeonLevel", 3);
+                    Debug.Log("L2 -> L3 (Down)");
+                    loading = true;
+                    SceneManager.LoadScene("L3");
+                    break;
+                case 3:
+                    pp.setString("lastScene", "L3");
+                    pp.setInt("dungeonLevel", 2);
+                    Debug.Log("L3 -> Plot (Down)");
                     loading = true;
                     SceneManager.LoadScene("Plot");
                     break;
@@ -139,21 +149,27 @@ public class Prince : MonoBehaviour {
         }
         else if (collision.gameObject.CompareTag("UpStairs")) {
             
-            switch (PlayerPrefs.GetInt("dungeonLevel")) {
+            switch (level) {
                 case 1:
-                    PlayerPrefs.SetString("lastScene", "L1");
-                    PlayerPrefs.SetInt("dungeonLevel", 1);
+                    pp.setString("lastScene", "L1");
+                    pp.setInt("dungeonLevel", 1);
                     Debug.Log("L1 -> Plot (Up)");
                     loading = true;
                     SceneManager.LoadScene("Plot");
                     break;
                 case 2:
-                    PlayerPrefs.SetString("lastScene", "L2");
-                    PlayerPrefs.SetInt("dungeonLevel", 1);
+                    pp.setString("lastScene", "L2");
+                    pp.setInt("dungeonLevel", 1);
                     Debug.Log("L2 -> L1 (Up)");
                     loading = true;
                     SceneManager.LoadScene("L1");
-                    Debug.Log("aaa");
+                    break;
+                case 3:
+                    pp.setString("lastScene", "L3");
+                    pp.setInt("dungeonLevel", 2);
+                    Debug.Log("L3 -> L2 (Up)");
+                    loading = true;
+                    SceneManager.LoadScene("L2");
                     break;
             }
         }

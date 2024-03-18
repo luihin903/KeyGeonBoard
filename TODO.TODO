@@ -242,8 +242,10 @@
                   "content": "potion",
                   "id": 1710725309605,
                   "level": "default",
-                  "done": false,
-                  "start": 1710725309605
+                  "done": true,
+                  "start": 1710725309605,
+                  "focus": false,
+                  "end": 1710729909629
                 }
               }
             ],
@@ -484,6 +486,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1710725369873"
+    "version": "1710729909835"
   }
 }
