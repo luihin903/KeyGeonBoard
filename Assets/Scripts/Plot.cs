@@ -29,21 +29,21 @@ public class Act0 : MonoBehaviour {
     public string[] plots = {
         "You are the prince of Ahpla Kingdom, and today is your birthday to turn 18.",
         "Your father (the king of Ahpla Kingdom): Hey son, I need you to marry the princess of Ateb Kingdom.",
-        "King: Get out of my country then.",
+        "King: \"Get out of my country then.\"",
         "You left Ahpla Kingdom and got on the way to Ateb Kingdom.",
         "You are kicked out from the country and no longer a prince.",
         "You met a monster during the trip.",
         "You arrived Ateb Kingdom.",
         "King: \"Welcome, you must be the prince of Ahpla Kingdom!\"",
-        "King: \"You must be here to marry my lovely daughter. However, you can't marry her right now.",
+        "King: \"You must be here to marry my lovely daughter. However, you can't marry her right now.\"",
         "The knight standing next to the king cut you into halves.",
         "You left Ateb Kingdom and went back to Ahpla Kingdom.",
-        "King: \"One month ago, a demon brought her into the dungeon. Could you bring her back?",
-        "King: \"Interesting. I am consider paying you for that.\"",
+        "King: \"One month ago, a demon brought her into the dungeon. Could you bring her back?\"",
+        "King: \"Interesting. I am considering paying you for that.\"",
         "You bought some supplies from the store and got into the dungeon.",
         "You saw the demon.",
-        "Demon: \"Don't kill me, I am the princess of Ateb Kingdom.",
-        "Demon: \"My father turned me into a demon with his black magic.",
+        "Demon: \"Don't kill me, I am the princess of Ateb Kingdom.\"",
+        "Demon: \"My father turned me into a demon with his black magic.\"",
         "You killed the demon.",
         "Princess: \"Could you bring me outside of this dungeon?\"",
         "You searched through the room, but you didn't see any human here.",
@@ -51,7 +51,7 @@ public class Act0 : MonoBehaviour {
         "You decided to do so.",
         "You decided to kill the king.",
         "The door was locked, and you could hear soldiers chatting outside.",
-        "Princess: \"Looks like he wants to trap us inside the dungeon.",
+        "Princess: \"Looks like he wants to trap us inside the dungeon.\"",
         "You are surrounded by 5 soldiers.",
         "You secretely left the dungeon and went to the castle.",
         "You fled the scene and ran towards the castle.",
@@ -72,6 +72,9 @@ public class Act0 : MonoBehaviour {
         }
 
         story.text = plots[PlayerPrefs.GetInt("plot")];
+        if (pp.getInt("plot") == 24 && pp.getBool("killed")) {
+            story.text = "Looks like the king wants to trap me (and the princess) inside the dungeon.";
+        }
         chooseBackground();
     }
 
@@ -116,6 +119,7 @@ public class Act0 : MonoBehaviour {
                 setP(13);
                 break;
             case 15:
+                pp.setBool("killed", false);
                 setP(16);
                 break;
             case 24:
@@ -161,6 +165,7 @@ public class Act0 : MonoBehaviour {
                 setP(12);
                 break;
             case 15:
+                pp.setBool("killed", true);
                 setP(17);
                 break;
             case 24:
@@ -305,9 +310,18 @@ public class Act0 : MonoBehaviour {
         // foreach (int i in castle) if (getP() == i) setCastle();
         // foreach (int i in rural) if (getP() == i) setRural();
         // foreach (int i in dungeon) if (getP() == i) setDungeon();
-        if (castle.Contains(getP())) setCastle();
-        else if (rural.Contains(getP())) setRural();
-        else if (dungeon.Contains(getP())) setDungeon();
+        if (castle.Contains(getP())) {
+            setCastle();
+            story.color = Color.white;
+        }
+        else if (rural.Contains(getP())) {
+            setRural();
+            story.color = Color.black;
+        }
+        else if (dungeon.Contains(getP())) {
+            setDungeon();
+            story.color = Color.white;
+        }
     }
 
     private void setCastle() {

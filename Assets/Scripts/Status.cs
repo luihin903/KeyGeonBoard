@@ -14,6 +14,8 @@ public class Status : MonoBehaviour {
     public TMP_Text fire;
     public Button close;
 
+    public TMP_Text notification;
+
     public bool open = false;
 
     void Update() {
@@ -24,6 +26,7 @@ public class Status : MonoBehaviour {
 
             open = !open;
             status.gameObject.SetActive(open);
+            setActive(notification, false);
 
             level.text = "Lv. " + prince.level + " (" + prince.exp + "/" + prince.level*10 + ")";
             hp.text = "HP: " + prince.hp + "/" + prince.maxHp;

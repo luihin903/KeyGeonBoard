@@ -58158,6 +58158,7 @@ MonoBehaviour:
   potion: {fileID: 692199850}
   fire: {fileID: 1186853723}
   close: {fileID: 865416071}
+  notification: {fileID: 1560123849}
   open: 0
 --- !u!4 &1715367716
 Transform:

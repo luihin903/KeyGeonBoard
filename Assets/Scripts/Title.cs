@@ -59,6 +59,8 @@ public class Title : MonoBehaviour {
     }
 
     public void Exit() {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
         Application.Quit();
     }
 

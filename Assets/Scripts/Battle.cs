@@ -105,11 +105,6 @@ public class Battle : MonoBehaviour {
                 }
                 break;
             // Cheat Code/Command
-            case "iat312 exit":
-                PlayerPrefs.DeleteAll();
-                PlayerPrefs.Save();
-                Application.Quit();
-                break;
             case "iat312 levelup":
                 prince.level ++;
                 prince.atk += 2;

@@ -190,8 +190,10 @@
               "content": "Chests",
               "id": 1710736538766,
               "level": "default",
-              "done": false,
-              "start": 1710736538766
+              "done": true,
+              "start": 1710736538766,
+              "focus": false,
+              "end": 1710823926263
             }
           }
         ],
@@ -199,8 +201,10 @@
           "content": "Map",
           "id": 1708209231051,
           "level": "default",
-          "done": false,
-          "start": 1708209231051
+          "done": true,
+          "start": 1708209231051,
+          "focus": false,
+          "end": 1710823928095
         }
       },
       {
@@ -268,8 +272,10 @@
                   "content": "FireLighter",
                   "id": 1710747722892,
                   "level": "default",
-                  "done": false,
-                  "start": 1710747722892
+                  "done": true,
+                  "start": 1710747722892,
+                  "focus": false,
+                  "end": 1710823921327
                 }
               }
             ],
@@ -277,8 +283,10 @@
               "content": "Magic/Spell/Item",
               "id": 1709680161922,
               "level": "default",
-              "done": false,
-              "start": 1709680161922
+              "done": true,
+              "start": 1709680161922,
+              "focus": false,
+              "end": 1710823923247
             }
           },
           {
@@ -415,8 +423,10 @@
               "content": "BGM",
               "id": 1710750532237,
               "level": "default",
-              "done": false,
-              "start": 1710750532238
+              "done": true,
+              "start": 1710750532238,
+              "focus": false,
+              "end": 1710823934543
             }
           }
         ],
@@ -462,8 +472,10 @@
               "content": "Font Color",
               "id": 1709680634207,
               "level": "default",
-              "done": false,
-              "start": 1709680634207
+              "done": true,
+              "start": 1709680634207,
+              "focus": false,
+              "end": 1710823936743
             }
           },
           {
@@ -493,7 +505,7 @@
             "key": 1710725286357,
             "children": [],
             "todo": {
-              "content": "Add Chests",
+              "content": "Typo in plot",
               "id": 1710725286357,
               "level": "default",
               "done": false,
@@ -504,11 +516,44 @@
             "key": 1710725367677,
             "children": [],
             "todo": {
-              "content": "change exp",
+              "content": "change font color",
               "id": 1710725367677,
               "level": "default",
               "done": false,
               "start": 1710725367677
+            }
+          },
+          {
+            "key": 1710823451712,
+            "children": [],
+            "todo": {
+              "content": "BGM",
+              "id": 1710823451712,
+              "level": "default",
+              "done": false,
+              "start": 1710823451712
+            }
+          },
+          {
+            "key": 1710823941071,
+            "children": [],
+            "todo": {
+              "content": "Change font",
+              "id": 1710823941071,
+              "level": "default",
+              "done": false,
+              "start": 1710823941071
+            }
+          },
+          {
+            "key": 1710825851479,
+            "children": [],
+            "todo": {
+              "content": "Change images",
+              "id": 1710825851479,
+              "level": "default",
+              "done": false,
+              "start": 1710825851479
             }
           }
         ],
@@ -543,6 +588,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1710750535552"
+    "version": "1710825855893"
   }
 }
