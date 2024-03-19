@@ -499,70 +499,37 @@
         }
       },
       {
-        "key": 1710725279293,
+        "key": 1710829705820,
         "children": [
           {
-            "key": 1710725286357,
+            "key": 1710829709288,
             "children": [],
             "todo": {
-              "content": "Typo in plot",
-              "id": 1710725286357,
+              "content": "background",
+              "id": 1710829709288,
               "level": "default",
               "done": false,
-              "start": 1710725286357
+              "start": 1710829709288
             }
           },
           {
-            "key": 1710725367677,
+            "key": 1710829728383,
             "children": [],
             "todo": {
-              "content": "change font color",
-              "id": 1710725367677,
+              "content": "endings",
+              "id": 1710829728383,
               "level": "default",
               "done": false,
-              "start": 1710725367677
-            }
-          },
-          {
-            "key": 1710823451712,
-            "children": [],
-            "todo": {
-              "content": "BGM",
-              "id": 1710823451712,
-              "level": "default",
-              "done": false,
-              "start": 1710823451712
-            }
-          },
-          {
-            "key": 1710823941071,
-            "children": [],
-            "todo": {
-              "content": "Change font",
-              "id": 1710823941071,
-              "level": "default",
-              "done": false,
-              "start": 1710823941071
-            }
-          },
-          {
-            "key": 1710825851479,
-            "children": [],
-            "todo": {
-              "content": "Change images",
-              "id": 1710825851479,
-              "level": "default",
-              "done": false,
-              "start": 1710825851479
+              "start": 1710829728383
             }
           }
         ],
         "todo": {
           "content": "Changes",
-          "id": 1710725279293,
+          "id": 1710829705820,
           "level": "default",
           "done": false,
-          "start": 1710725279293
+          "start": 1710829705821
         }
       }
     ],
@@ -574,8 +541,8 @@
       1708740689791,
       1708750484369,
       1709680470618,
-      1710725279293,
-      1709680161922
+      1709680161922,
+      1710829705820
     ],
     "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L3",
     "add_mode": "bottom",
@@ -588,6 +555,6 @@
     "showEndTime": false,
     "simpleMode": false,
     "lang": "en",
-    "version": "1710825855893"
+    "version": "1710829731903"
   }
 }
